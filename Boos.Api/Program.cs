@@ -19,7 +19,7 @@ namespace Books.Api
         public static void Main(string[] args)
         {
             //throttle the thread pool(set available threads to amount of processors)
-            ThreadPool.SetMaxThreads(Environment.ProcessorCount, Environment.ProcessorCount;
+            ThreadPool.SetMaxThreads(Environment.ProcessorCount, Environment.ProcessorCount);
             var host = CreateWebHostBuilder(args).Build(); 
             //migrate the database on running the app
             using (var scope = host.Services.CreateScope())
