@@ -41,6 +41,12 @@ namespace Books.Api.Services
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Book>> GetBooksAsync(IEnumerable<Guid> bookIds)
+        {
+            return await _context.Books.Where(b => bookIds.Contains(b.Id))
+                .Include(b => b.Author).ToListAsync();
+        }
+
         public IEnumerable<Book> GetBooks()
         {
             _context.Database.ExecuteSqlCommand("WAITFOR DELAY '00:00:02'");
